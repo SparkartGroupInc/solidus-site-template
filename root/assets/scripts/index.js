@@ -1,4 +1,3 @@
 /* All your JS starts here!
-   Use requirejs (http://requirejs.org/) to include more JS files.
-   You don't need to include requirejs yourself!
-   The Grunt scripts will automatically merge all these files into /compiled/scripts.js */
+   Use browserify (http://browserify.org/) to include more JS files.
+   `grunt dev` will automatically run browserify and return the compiled file at /compiled/scripts.js */

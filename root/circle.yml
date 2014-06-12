@@ -1,0 +1,31 @@
+machine:
+  node:
+    version: 0.10.25
+dependencies:
+  post:
+    - npm install grunt-cli -g
+    - npm install modulus -g
+    - npm install qa-deployer -g
+    - modulus login --username $MODULUS_USERNAME --password $MODULUS_PASSWORD
+    - npm install bower -g
+    - bower install
+    - gem install bundler
+    - bundle install --system
+test:
+  override:
+    - grunt compile
+deployment:
+  production:
+    branch: master
+    commands:
+     - grunt predeploy
+     - modulus deploy ./deploy -p {%= name %} --include-modules
+  review:
+    branch: /^(?!master$)(.*)/
+    commands:
+      - circleci-deploy-github-pull-request-to-modulus
+notify:
+  webhooks:
+     - url: https://zapier.com/hooks/catch/n/rsxym/
+     - url: https://zapier.com/hooks/catch/n/198yq/
+     - url: https://zapier.com/hooks/catch/n/198op/
