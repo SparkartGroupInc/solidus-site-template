@@ -19,11 +19,11 @@ deployment:
     branch: master
     commands:
      - grunt predeploy
-     - modulus deploy ./deploy -p {%= name %} --include-modules
+     - modulus deploy ./deploy -p $CIRCLE_PROJECT_REPONAME --include-modules
   review:
     branch: /^(?!master$)(.*)/
     commands:
-      - circleci-deploy-github-pull-request-to-modulus
+      - circleci-deploy-github-pull-request-to-modulus --options-from=notifications.json
 notify:
   webhooks:
      - url: https://zapier.com/hooks/catch/n/rsxym/
