@@ -5,6 +5,9 @@ module.exports = function( grunt ){
   var pkg = grunt.file.readJSON( __dirname +'/package.json');
   var solidus_port = grunt.option('port') || grunt.option('p');
   var livereload_port = grunt.option('livereloadport') || grunt.option('r');
+  var log_server_port = grunt.option('logserverport');
+  var log_level = grunt.option('loglevel') || grunt.option('l');
+  var log_server_level = grunt.option('logserverlevel');
 
   // get shim config if it exists
   var shim_config = {};
@@ -140,8 +143,10 @@ module.exports = function( grunt ){
     solidus.start({
       port: solidus_port,
       dev: true,
-      log_level: 3,
-      livereload_port: livereload_port
+      livereload_port: livereload_port,
+      log_server_port: log_server_port,
+      log_level: log_level,
+      log_server_level: log_server_level
     });
   });
 

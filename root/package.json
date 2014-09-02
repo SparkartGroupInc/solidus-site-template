@@ -22,6 +22,6 @@
     "hbsfy": "~1.3.2"
   },
   "dependencies": {
-    "solidus": "0.1.x"
+    "solidus": "~0.2.2"
   }
 }
