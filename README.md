@@ -1,3 +1,5 @@
+Note: the jungle-site-template branch is outdated in favor of https://github.com/sparkartgroupinc/jungle-solidus-template , but keeping it around for reference.
+
 solidus-site-template
 =====================
 
