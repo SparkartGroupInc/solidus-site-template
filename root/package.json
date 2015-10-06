@@ -2,26 +2,27 @@
   "name": "{%= name %}",
   "version": "0.0.0",
   "private": true,
-  "main": "start.js",
+  "main": "server.js",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "preinstall": "npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN",
+    "predeploy": "npm run build && gulp predeploy",
+    "deploy": "deploy --options-from=./node_modules/@sparkart/broadway/config/deploy-modulus-production",
+    "predeploy-review": "npm run build",
+    "deploy-review": "deploy-review --options-from=./node_modules/@sparkart/broadway/config/deploy-modulus-review",
+    "test": "echo"
+  },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-browserify": "~1.3.1",
-    "grunt-contrib-clean": "~0.4.1",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-cssmin": "~0.6.1",
-    "grunt-contrib-sass": "~0.8.0",
-    "grunt-contrib-watch": "~0.5.1",
-    "grunt-cssjoin": "~0.2.0",
-    "grunt-filerev-replace": "0.1.1",
-    "grunt-filerev": "~0.1.0",
-    "grunt-prompt": "~0.1.2",
-    "grunt-regarde": "~0.1.1",
-    "grunt-shell": "~0.6.1",
-    "handlebars-helper": "0.0.x",
-    "handlebars": "1.3.x",
-    "hbsfy": "~1.3.2"
+    "@sparkart/broadway": "^3.0.0"
   },
   "dependencies": {
-    "solidus": "~0.2.2"
+    "js-yaml": "^3.2.3",
+    "solidus": "^2.1.2",
+    "solidus-metadata": "^1.0.1"
+  },
+  "engines": {
+    "node": "0.12.7",
+    "npm": "^2.0.0"
   }
 }
